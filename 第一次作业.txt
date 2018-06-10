@@ -1,0 +1,13 @@
+kaifang_file_path = 'C:\\Users\\dell\\Desktop\\kaifangX.txt'#开房数据路径
+email_file_path = 'C:\\Users\\dell\\Desktop\\email.txt'#自己的文档的路径
+kaifang_file = open(kaifang_file_path,'r',encoding='utf-8',errors='ignore')
+email_file = open(email_file_path,'a',encoding='utf-8',errors='ignore')
+for i in range(10000):
+    try:#尝试
+        email=kaifang_file.readline().split(',')[9]#是邮箱的位置
+        email_file.write(email+'\n')
+    except Exception as e:
+        print(e)
+        print('未获取到数据')
+kaifang_file.close()
+email_file.close()
