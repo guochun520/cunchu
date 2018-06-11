@@ -1,0 +1,12 @@
+def chun():
+    import requests
+    zuoye=['http://www.17k.com/book/2720328.html','http://www.17k.com/book/2695640.html']
+    header = {'User_Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'}
+    for i in range(2):
+        url=zuoye[i]
+        response = requests.get(url,headers=header)
+    file = 'C:\\Users\\dell\\Desktop\\zuoye'+str(i)+'.html'
+    with open(file,'w',encoding='utf-8',) as f:
+        f.write(response.text)
+    print(i)
+chun()
