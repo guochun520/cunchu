@@ -1,0 +1,23 @@
+# 作业
+- 提取网页源代码中的任意a标签
+- 提取a链接中的href属性
+import requests
+b = requests.get('http://all.17k.com/lib/book.html')
+b.text
+from lxml import etree
+tree = etree.HTML(b.text)
+tree
+div = tree.xpath('//div[@class="Header1"]')
+print(div)
+for i in div:
+    print(tree.xpath('/html/body/div/div/a[@href]/@href'))
+
+作业：
+
+找出4，2，456
+import re
+content = 'Hello 1234567 hahaha 123 lalala 456'
+res = re.match('^H\w{4}\s\d{3}(\d)\d{3}\s\w{6}\s\d(\d)\d\s\w{6}\s(\d{3})',content)
+print(res.group(1))
+print(res.group(2))
+print(res.group(3))
