@@ -1,0 +1,332 @@
+guozhiying@ubuntu:~$ sudo mysql -u root -p
+[sudo] password for guozhiying: 
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 5
+Server version: 5.7.24-0ubuntu0.18.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database homework2 charset=utf8;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| hello_mysql        |
+| homework           |
+| homework2          |
+| mysql              |
+| performance_schema |
+| sys                |
+| work1              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use homework2;
+Database changed
+mysql> create table gongzi1(
+    -> id int auto_increment primary key,
+    -> money int(20) not null);
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> desc gongzi1;
++-------+---------+------+-----+---------+----------------+
+| Field | Type    | Null | Key | Default | Extra          |
++-------+---------+------+-----+---------+----------------+
+| id    | int(11) | NO   | PRI | NULL    | auto_increment |
+| money | int(20) | NO   |     | NULL    |                |
++-------+---------+------+-----+---------+----------------+
+2 rows in set (0.06 sec)
+
+mysql> create table gongzi2(
+    -> id int auto_increment primary key,
+    -> money int(20) not null);
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc gongzi2;
++-------+---------+------+-----+---------+----------------+
+| Field | Type    | Null | Key | Default | Extra          |
++-------+---------+------+-----+---------+----------------+
+| id    | int(11) | NO   | PRI | NULL    | auto_increment |
+| money | int(20) | NO   |     | NULL    |                |
++-------+---------+------+-----+---------+----------------+
+2 rows in set (0.03 sec)
+
+mysql> insert into gongzi1(id,money) values (1,8000);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into gongzi1(money) values (10000),(8000),(8500),(9000),(15000),(12000),(6000),(8000),(9500),(6500),(8000),(10000),(9000),(8500);
+Query OK, 14 rows affected (0.06 sec)
+Records: 14  Duplicates: 0  Warnings: 0
+
+mysql> select * from gongzi1;
++----+-------+
+| id | money |
++----+-------+
+|  1 |  8000 |
+|  2 | 10000 |
+|  3 |  8000 |
+|  4 |  8500 |
+|  5 |  9000 |
+|  6 | 15000 |
+|  7 | 12000 |
+|  8 |  6000 |
+|  9 |  8000 |
+| 10 |  9500 |
+| 11 |  6500 |
+| 12 |  8000 |
+| 13 | 10000 |
+| 14 |  9000 |
+| 15 |  8500 |
++----+-------+
+15 rows in set (0.00 sec)
+
+mysql> insert into gongzi2(id,money) values (1,8500);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from gongzi2;
++----+-------+
+| id | money |
++----+-------+
+|  1 |  8500 |
++----+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into gongzi2(money) values (9000),(10000),(7500),(6000),(9500),(11000),(8000),(8500),(6500),(6000),(7800),(8800),(6800),(9000);
+Query OK, 14 rows affected (0.04 sec)
+Records: 14  Duplicates: 0  Warnings: 0
+
+mysql> select * from gongzi2;
++----+-------+
+| id | money |
++----+-------+
+|  1 |  8500 |
+|  2 |  9000 |
+|  3 | 10000 |
+|  4 |  7500 |
+|  5 |  6000 |
+|  6 |  9500 |
+|  7 | 11000 |
+|  8 |  8000 |
+|  9 |  8500 |
+| 10 |  6500 |
+| 11 |  6000 |
+| 12 |  7800 |
+| 13 |  8800 |
+| 14 |  6800 |
+| 15 |  9000 |
++----+-------+
+15 rows in set (0.00 sec)
+
+mysql> select sum(money) from gongzi1;
++------------+
+| sum(money) |
++------------+
+|     136000 |
++------------+
+1 row in set (0.17 sec)
+
+mysql> select max(money) from gongzi1;
++------------+
+| max(money) |
++------------+
+|      15000 |
++------------+
+1 row in set (0.02 sec)
+
+mysql> select min(money) from gongzi1;
++------------+
+| min(money) |
++------------+
+|       6000 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(money) from gongzi2;
++------------+
+| sum(money) |
++------------+
+|     122900 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select max(money) from gongzi2;
++------------+
+| max(money) |
++------------+
+|      11000 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select min(money) from gongzi2;
++------------+
+| min(money) |
++------------+
+|       6000 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select * from gongzi1 order by id desc;
++----+-------+
+| id | money |
++----+-------+
+| 15 |  8500 |
+| 14 |  9000 |
+| 13 | 10000 |
+| 12 |  8000 |
+| 11 |  6500 |
+| 10 |  9500 |
+|  9 |  8000 |
+|  8 |  6000 |
+|  7 | 12000 |
+|  6 | 15000 |
+|  5 |  9000 |
+|  4 |  8500 |
+|  3 |  8000 |
+|  2 | 10000 |
+|  1 |  8000 |
++----+-------+
+15 rows in set (0.04 sec)
+
+mysql> select * from gongzi2 order by id desc;
++----+-------+
+| id | money |
++----+-------+
+| 15 |  9000 |
+| 14 |  6800 |
+| 13 |  8800 |
+| 12 |  7800 |
+| 11 |  6000 |
+| 10 |  6500 |
+|  9 |  8500 |
+|  8 |  8000 |
+|  7 | 11000 |
+|  6 |  9500 |
+|  5 |  6000 |
+|  4 |  7500 |
+|  3 | 10000 |
+|  2 |  9000 |
+|  1 |  8500 |
++----+-------+
+15 rows in set (0.00 sec)
+
+mysql> select * from gongzi1 order by id desc limit 0,5;
++----+-------+
+| id | money |
++----+-------+
+| 15 |  8500 |
+| 14 |  9000 |
+| 13 | 10000 |
+| 12 |  8000 |
+| 11 |  6500 |
++----+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from gongzi1 order by id desc limit 5,5;
++----+-------+
+| id | money |
++----+-------+
+| 10 |  9500 |
+|  9 |  8000 |
+|  8 |  6000 |
+|  7 | 12000 |
+|  6 | 15000 |
++----+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from gongzi1 order by id desc limit 10,5;
++----+-------+
+| id | money |
++----+-------+
+|  5 |  9000 |
+|  4 |  8500 |
+|  3 |  8000 |
+|  2 | 10000 |
+|  1 |  8000 |
++----+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from gongzi2 order by id desc limit 0,5;
++----+-------+
+| id | money |
++----+-------+
+| 15 |  9000 |
+| 14 |  6800 |
+| 13 |  8800 |
+| 12 |  7800 |
+| 11 |  6000 |
++----+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from gongzi2 order by id desc limit 5,5;
++----+-------+
+| id | money |
++----+-------+
+| 10 |  6500 |
+|  9 |  8500 |
+|  8 |  8000 |
+|  7 | 11000 |
+|  6 |  9500 |
++----+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from gongzi2 order by id desc limit 10,5;
++----+-------+
+| id | money |
++----+-------+
+|  5 |  6000 |
+|  4 |  7500 |
+|  3 | 10000 |
+|  2 |  9000 |
+|  1 |  8500 |
++----+-------+
+5 rows in set (0.00 sec)
+比较不会做：mysql> select max(money) from gongzi1,gongzi2;
+ERROR 1052 (23000): Column 'money' in field list is ambiguous
+mysql> select max(max(money)) from gongzi1,gongzi2;
+ERROR 1052 (23000): Column 'money' in field list is ambiguous
+mysql> select max(max(money)) from gongzi1.max(money),gongzi2.max(money);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(money),gongzi2.max(money)' at line 1
+mysql> select max(max(money)) from gongzi1.max(money) and gongzi2.max(money);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(money) and gongzi2.max(money)' at line 1
+mysql> select max(max(money)) from gongzi1.max(money) and gongzi2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(money) and gongzi2' at line 1
+mysql> select max(max(money)) from gongzi1.max(money),gongzi2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(money),gongzi2' at line 1
+mysql> select max(max(money)) from gongzi1.max(money),gongzi2.max(money);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(money),gongzi2.max(money)' at line 1
+mysql> select max(max(money)) from gongzi1.max(money)gongzi2.max(money);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(money)gongzi2.max(money)' at line 1
+mysql> select max(money) from gongzi1.max(money)gongzi2.max(money);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(money)gongzi2.max(money)' at line 1
+mysql> select max(money) from gongzi1.max(money),gongzi2.max(money);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(money),gongzi2.max(money)' at line 1
+mysql> select max(money) from gongzi1,gongzi2.max(money);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(money)' at line 1
+mysql> select max(money) from gongzi1,gongzi2;
+ERROR 1052 (23000): Column 'money' in field list is ambiguous
+mysql> select max(max(money)) from gongzi1,gongzi2;
+ERROR 1052 (23000): Column 'money' in field list is ambiguous
+mysql> select 11000 15000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '15000' at line 1
+mysql> select max(max(money) from gongzi1,gongzi2);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from gongzi1,gongzi2)' at line 1
+mysql> select max(max(money) from gongzi1 and gongzi2);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from gongzi1 and gongzi2)' at line 1
+mysql> select max(max(money) from gongzi1.money, gongzi2.money);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from gongzi1.money, gongzi2.money)' at line 1
+mysql> select max(max(money) from gongzi1gongzi2);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from gongzi1gongzi2)' at line 1
+mysql> select max(select max(money) from gongzi1,gongzi2);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select max(money) from gongzi1,gongzi2)' at line 1
+mysql> select max(money) from gongzi1.max(money) and gongzi2.max(money);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(money) and gongzi2.max(money)' at line 1
