@@ -1,0 +1,93 @@
+mysql> create table film(id int auto_increment primary key,
+    -> name varchar(100) not null,
+    -> year int not null,
+    -> director varchar(100) not null,
+    -> score int not null);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc film;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(100) | NO   |     | NULL    |                |
+| year     | int(11)      | NO   |     | NULL    |                |
+| director | varchar(100) | NO   |     | NULL    |                |
+| score    | int(11)      | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into film(id,name,year,director,score) values (1,"Missionlmpossible1",1996,"paerma",8);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from film;
++----+--------------------+------+----------+-------+
+| id | name               | year | director | score |
++----+--------------------+------+----------+-------+
+|  1 | Missionlmpossible1 | 1996 | paerma   |     8 |
++----+--------------------+------+----------+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into film(name,year,director,score) values ("Missionlmpossible2",2000,"wuyusen",7);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into film(name,year,director,score) values ("Missionlmpossible3",2006,"lamusi",7);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into film(name,year,director,score) values ("Missionlmpossible4",2012,"bode",8); 
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into film(name,year,director,score) values ("Missionlmpossible5",2015,"maikuili",8);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into film(name,year,director,score) values ("Missionlmpossible6",2018,"maikuili",8);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from film;
++----+--------------------+------+----------+-------+
+| id | name               | year | director | score |
++----+--------------------+------+----------+-------+
+|  1 | Missionlmpossible1 | 1996 | paerma   |     8 |
+|  2 | Missionlmpossible2 | 2000 | wuyusen  |     7 |
+|  3 | Missionlmpossible3 | 2006 | lamusi   |     7 |
+|  4 | Missionlmpossible4 | 2012 | bode     |     8 |
+|  5 | Missionlmpossible5 | 2015 | maikuili |     8 |
+|  6 | Missionlmpossible6 | 2018 | maikuili |     8 |
++----+--------------------+------+----------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from film where name like"%le1";
++----+--------------------+------+----------+-------+
+| id | name               | year | director | score |
++----+--------------------+------+----------+-------+
+|  1 | Missionlmpossible1 | 1996 | paerma   |     8 |
++----+--------------------+------+----------+-------+
+1 row in set (0.01 sec)
+
+mysql> select * from film where director like"%li";
++----+--------------------+------+----------+-------+
+| id | name               | year | director | score |
++----+--------------------+------+----------+-------+
+|  5 | Missionlmpossible5 | 2015 | maikuili |     8 |
+|  6 | Missionlmpossible6 | 2018 | maikuili |     8 |
++----+--------------------+------+----------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from film where year=2018;
++----+--------------------+------+----------+-------+
+| id | name               | year | director | score |
++----+--------------------+------+----------+-------+
+|  6 | Missionlmpossible6 | 2018 | maikuili |     8 |
++----+--------------------+------+----------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from film where score in(select max(score) from film);
++----+--------------------+------+----------+-------+
+| id | name               | year | director | score |
++----+--------------------+------+----------+-------+
+|  1 | Missionlmpossible1 | 1996 | paerma   |     8 |
+|  4 | Missionlmpossible4 | 2012 | bode     |     8 |
+|  5 | Missionlmpossible5 | 2015 | maikuili |     8 |
+|  6 | Missionlmpossible6 | 2018 | maikuili |     8 |
++----+--------------------+------+----------+-------+
+4 rows in set (0.00 sec)
