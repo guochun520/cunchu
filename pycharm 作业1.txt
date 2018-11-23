@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<b><i>&lt&ltSympathy For The Peasants&gt&gt</i></b>
+<p> Hoeing Millet In Mid-day Heat </p>
+<p> Sweat Dripping To Earth Beneath </p>
+<p> Do You Know The Food On Your Plate </p>
+<p> Each Grain Was Hard-earned </p>
+
+
+
+<b><i>&lt&ltTranquil Night&gt&gt</i></b>
+<p> Before My Bed A Pool Of Light </p>
+<p> Is It Hoarfrost Up On The Ground </p>
+<p> Eyes Raised I See The Moon So Bright </p>
+<p> Head Bent In Homesickness I'm Drowned </p>
+</body>
+</html>
+
+
+½á¹û£º
+<<Sympathy For The Peasants>>
+
+Hoeing Millet In Mid-day Heat
+
+Sweat Dripping To Earth Beneath
+
+Do You Know The Food On Your Plate
+
+Each Grain Was Hard-earned
+<<Tranquil Night>>
+
+Before My Bed A Pool Of Light
+
+Is It Hoarfrost Up On The Ground
+
+Eyes Raised I See The Moon So Bright
+
+Head Bent In Homesickness I'm Drowned
